@@ -1,0 +1,8 @@
+/* src/app/app.css */
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  

@@ -1,0 +1,192 @@
+/* src/app/components/add-entry/add-entry.component.css */
+body {
+  background-color: #2a2d1f;
+}
+
+.entry-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #3d4a2c;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border: 1px solid #4a5936;
+}
+
+.entry-container h1 {
+  text-align: center;
+  color: #d4d987;
+  margin-bottom: 32px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.entry-container textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #5a6b42;
+  border-radius: 12px;
+  background: #2d3520;
+  font-size: 15px;
+  font-family: 'Consolas', monospace;
+  resize: vertical;
+  transition: all 0.2s ease;
+  color: #e8e5c8;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.entry-container textarea:focus {
+  outline: none;
+  border-color: #8b9a5f;
+  background: #323c22;
+}
+
+.entry-container textarea::placeholder {
+  color: #7d8c5e;
+  font-style: normal;
+}
+
+.entry-container button {
+  width: 100%;
+  padding: 14px 24px;
+  background: #9fa864;
+  color: #1f2414;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: -0.3px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.entry-container button:hover {
+  background: #b5c279;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.entry-container button:active {
+  transform: translateY(0);
+}
+
+.result-box {
+  background: #2d3520;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #5a6b42;
+  animation: slideIn 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.roast-poem {
+  white-space: pre-wrap;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #d4d987;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+/* view entries smaller + centered */
+.entry-container .view-entries-btn {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* loading dots */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px;
+  background: #2d3520;
+  border-radius: 12px;
+  animation: slideIn 0.3s ease;
+  border: 1px solid #5a6b42;
+  margin-bottom: 20px;
+}
+.loading-text {
+  font-size: 15px;
+  color: #9fa864;
+  font-weight: 500;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.loading-dots span {
+  width: 6px;
+  height: 6px;
+  background: #8b9a5f;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling for textarea */
+.entry-container textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.entry-container textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.entry-container textarea::-webkit-scrollbar-thumb {
+  background: #5a6b42;
+  border-radius: 3px;
+}
+
+.entry-container textarea::-webkit-scrollbar-thumb:hover {
+  background: #7d8c5e;
+}

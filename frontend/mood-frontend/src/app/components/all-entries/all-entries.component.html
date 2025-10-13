@@ -1,0 +1,31 @@
+<!-- src/app/all-entries/all-entries.component.html -->
+<div class="entries-page">
+  <div class="back-btn-container">
+    <button class="back-btn" (click)="goBack()">←</button>
+  </div>
+
+  <h1>All Journal Entries</h1>
+
+  <div *ngIf="isLoading">Loading...</div>
+
+  <div class="entries-container">
+    <div *ngFor="let entry of entries" class="entry-card" (click)="expandCard(entry)">
+      <p><strong>Date:</strong> {{ entry.date | date : 'mediumDate' }}</p>
+      <p><strong>Text:</strong> {{ entry.text }}</p>
+      <p><strong>Suggestion:</strong> {{ entry.suggestion }}</p>
+    </div>
+  </div>
+
+  <!-- Enlarged card -->
+  <div class="expanded-card" *ngIf="selectedEntry" (click)="closeExpandedCard()">
+    <div class="expanded-content" (click)="$event.stopPropagation()">
+      <p><strong>Date:</strong> {{ selectedEntry.date | date : 'mediumDate' }}</p>
+      <p><strong>Text:</strong> {{ selectedEntry.text }}</p>
+      <p><strong>Suggestion:</strong> {{ selectedEntry.suggestion }}</p>
+
+      <button class="delete-btn" (click)="deleteEntry(selectedEntry.id)">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>

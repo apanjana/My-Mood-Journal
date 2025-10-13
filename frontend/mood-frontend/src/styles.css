@@ -1,0 +1,97 @@
+/* src/styles.css */
+html {
+    font-family: "Consolas", monospace;
+    overflow-x: hidden;
+  }
+  
+  html::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 20% 80%, rgba(120,141,86,0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(196,210,146,0.3) 0%, transparent 50%),
+                linear-gradient(180deg, #454d36 0%, #363a27 100%);
+    z-index: -2;
+    pointer-events: none;
+  }
+  
+  /* Creepy tree silhouette (keeps decorative only) */
+  html::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    width: 200px;
+    height: 350px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 350'%3E%3Cpath d='M100 350 L100 200 L85 180 L100 160 L90 140 L100 120 L95 100 L100 80 Q95 60 90 40 Q88 20 95 10 Q102 20 100 40 Q105 60 100 80 L105 100 L100 120 L110 140 L100 160 L115 180 L100 200 Z M100 180 L75 200 L80 220 M100 160 L70 170 L72 185 M100 140 L125 150 L122 165 M100 120 L130 135 L128 150' fill='%231a1d14' stroke='%230d0f0a' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+    transform-origin: bottom center;
+    animation: treeSway 4s ease-in-out infinite;
+  }
+  
+  /* Floating ghost */
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  
+  body::before {
+    top: 15%;
+    left: -100px;
+    width: 80px;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 100'%3E%3Cpath d='M40 10 Q25 10 18 25 Q10 40 10 55 L10 85 Q10 90 13 92 Q15 90 15 85 L15 80 Q20 85 25 85 Q25 80 25 75 L25 80 Q30 85 35 85 Q35 80 35 75 L35 80 Q40 85 45 85 Q45 80 45 75 L45 80 Q50 85 55 85 Q55 80 55 75 L55 80 Q60 85 65 85 Q67 90 70 85 L70 55 Q70 40 62 25 Q55 10 40 10 Z' fill='%23d4d987' opacity='0.15'/%3E%3Cellipse cx='30' cy='40' rx='4' ry='6' fill='%231a1d14' opacity='0.3'/%3E%3Cellipse cx='50' cy='40' rx='4' ry='6' fill='%231a1d14' opacity='0.3'/%3E%3C/svg%3E");
+    animation: ghostFloat 25s linear infinite;
+    filter: blur(1px);
+  }
+  
+  body::after {
+    top: 60%;
+    left: -80px;
+    width: 60px;
+    height: 75px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 100'%3E%3Cpath d='M40 10 Q25 10 18 25 Q10 40 10 55 L10 85 Q10 90 13 92 Q15 90 15 85 L15 80 Q20 85 25 85 Q25 80 25 75 L25 80 Q30 85 35 85 Q35 80 35 75 L35 80 Q40 85 45 85 Q45 80 45 75 L45 80 Q50 85 55 85 Q55 80 55 75 L55 80 Q60 85 65 85 Q67 90 70 85 L70 55 Q70 40 62 25 Q55 10 40 10 Z' fill='%23d4d987' opacity='0.12'/%3E%3Cellipse cx='30' cy='40' rx='4' ry='6' fill='%231a1d14' opacity='0.25'/%3E%3Cellipse cx='50' cy='40' rx='4' ry='6' fill='%231a1d14' opacity='0.25'/%3E%3C/svg%3E");
+    animation: ghostFloat 32s linear infinite;
+    animation-delay: 8s;
+    filter: blur(1.5px);
+  }
+  
+  /* fog + misc */
+  body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* animations used above */
+  @keyframes treeSway {
+    0%,100% { transform: rotate(0deg) translateX(0); }
+    25% { transform: rotate(-2deg) translateX(-3px); }
+    75% { transform: rotate(2deg) translateX(3px); }
+  }
+  
+  @keyframes ghostFloat {
+    0% { left: -100px; transform: translateY(0) scale(1); }
+    25% { transform: translateY(-20px) scale(1.05); }
+    50% { transform: translateY(0) scale(1); }
+    75% { transform: translateY(-15px) scale(0.98); }
+    100% { left: calc(100% + 100px); transform: translateY(0) scale(1); }
+  }
+  
+  /* small utility for the app-root container */
+  app-root { display: block; }
+  
