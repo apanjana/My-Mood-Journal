@@ -4,15 +4,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { JournalService } from '../../services/journal.service';
 import { Router } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar';
 
 @Component({
   selector: 'app-add-entry',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NavbarComponent],
   templateUrl: './add-entry.component.html',
-  styleUrls: ['./add-entry.component.css']
+  styleUrls: ['./add-entry.component.css'],
 })
 export class AddEntryComponent {
+  name = localStorage.getItem('name') || '';
   text = '';
   mood = '';
   suggestion = '';
@@ -35,7 +37,7 @@ export class AddEntryComponent {
         console.error(err);
         this.isLoading = false;
         alert('Failed to submit entry.');
-      }
+      },
     });
   }
 

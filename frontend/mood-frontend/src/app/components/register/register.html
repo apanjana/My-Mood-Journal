@@ -1,0 +1,20 @@
+<div class="register-container">
+  <h2>Create Account</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <input type="text" placeholder="Username" formControlName="username" />
+    <input type="text" placeholder="Full Name" formControlName="name" />
+
+    <input type="date" formControlName="dob" />
+
+    <input type="password" placeholder="Password" formControlName="password" />
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p class="login-link">Already have an account? <a routerLink="/login">Login here</a></p>
+
+  <p *ngIf="message" [class]="message.includes('successful') ? 'message success' : 'message error'">
+    {{ message }}
+  </p>
+</div>

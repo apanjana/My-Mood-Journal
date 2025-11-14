@@ -1,29 +1,25 @@
-<!-- src/app/components/add-entry/add-entry.component.html -->
+<app-navbar></app-navbar>
 <div class="entry-container">
-    <h1>My Mood Journal</h1>
-  
-    <textarea
-      [(ngModel)]="text"
-      placeholder="How are you feeling?"
-      rows="5"
-      cols="30">
-    </textarea>
-  
-    <button (click)="submitEntry()">Submit</button>
-  
-    <div class="loading" *ngIf="isLoading">
-      <span class="loading-text">Wait a minute</span>
-      <div class="loading-dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  
-    <div class="result-box" *ngIf="mood && !isLoading">
-      <p class="roast-poem">{{ suggestion }}</p>
-    </div>
-  
-    <button class="view-entries-btn" (click)="goToAll()">View All Entries</button>
+  <div class="top-bar">
+    <h1>{{ name }}'s Mood Journal</h1>
   </div>
-  
+
+  <textarea [(ngModel)]="text" placeholder="How are you feeling?" rows="5" cols="30"> </textarea>
+
+  <button (click)="submitEntry()">Submit</button>
+
+  <div class="loading" *ngIf="isLoading">
+    <span class="loading-text">Wait a minute</span>
+    <div class="loading-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="result-box" *ngIf="mood && !isLoading">
+    <p class="roast-poem">{{ suggestion }}</p>
+  </div>
+
+  <button class="view-entries-btn" (click)="goToAll()">View All Entries</button>
+</div>

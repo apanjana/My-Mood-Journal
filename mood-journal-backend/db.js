@@ -1,3 +1,4 @@
+// db.js
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 
@@ -11,11 +12,10 @@ export const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     dialect: "mysql",
     port: process.env.DB_PORT || 3306,
-    logging: false, // turn on if you want SQL logs
+    logging: false,
   }
 );
 
-// Test connection
 export const testDBConnection = async () => {
   try {
     await sequelize.authenticate();
@@ -24,5 +24,6 @@ export const testDBConnection = async () => {
     console.error("❌ Unable to connect to MySQL:", error);
   }
 };
+
 
 export default sequelize;

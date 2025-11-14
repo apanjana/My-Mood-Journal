@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JournalService } from '../../services/journal.service';
+import { NavbarComponent } from '../navbar/navbar';
 
 @Component({
   selector: 'app-all-entries',
   standalone: true,
-  imports: [CommonModule, FormsModule, DatePipe],
+  imports: [CommonModule, FormsModule, DatePipe,NavbarComponent],
   templateUrl: './all-entries.component.html',
   styleUrls: ['./all-entries.component.css']
 })
@@ -55,7 +56,8 @@ export class AllEntriesComponent implements OnInit {
     });
   }
 
-  goBack() {
-    this.router.navigate(['/']);
-  }
+//   goBack() {
+//     this.router.navigate(['/']);
+//   }
+  
 }

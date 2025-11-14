@@ -23,4 +23,7 @@ export const JournalEntry = sequelize.define("JournalEntry", {
     type: DataTypes.DATEONLY,
     defaultValue: DataTypes.NOW,
   },
+  userId: {
+    type: DataTypes.INTEGER,
+  },
 });

@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="profile-container">
+  <h2>Your Profile</h2>
+
+  <label>Full Name</label>
+  <input [(ngModel)]="name" type="text" placeholder="Enter your full name" />
+
+  <label>Username</label>
+  <input [(ngModel)]="username" type="text" placeholder="Enter your username" />
+
+  <label>Date of Birth</label>
+  <input [(ngModel)]="dob" type="date" disabled />
+
+  <label>New Password (optional)</label>
+  <input
+    [(ngModel)]="password"
+    type="password"
+    placeholder="Leave blank to keep current password"
+  />
+
+  <button class="update-btn" (click)="updateProfile()">Update Profile</button>
+
+  <div class="msg" [ngClass]="messageType" *ngIf="message">
+    {{ message }}
+  </div>
+
+  <button class="delete-btn" (click)="deleteAccount()">Delete Account</button>
+</div>

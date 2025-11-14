@@ -1,8 +1,10 @@
 /* src/app/app.css */
+html {
+  font-family: 'Consolas', monospace;
+}
 :host {
-    display: block;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
+  display: block;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}

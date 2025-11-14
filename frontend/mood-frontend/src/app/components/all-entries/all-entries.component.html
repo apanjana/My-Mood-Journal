@@ -1,10 +1,10 @@
-<!-- src/app/all-entries/all-entries.component.html -->
+<app-navbar></app-navbar>
 <div class="entries-page">
-  <div class="back-btn-container">
-    <button class="back-btn" (click)="goBack()">←</button>
+  <div class="top-bar">
+    <!-- <button class="back-btn" (click)="goBack()">←</button> -->
+    <h1>All Journal Entries</h1>
+    
   </div>
-
-  <h1>All Journal Entries</h1>
 
   <div *ngIf="isLoading">Loading...</div>
 

@@ -6,13 +6,14 @@ import db from "../db.js";
 export const deleteEntry = async (req, res) => {
   try {
     const { id } = req.params;
+    const userId = req.user.id;
 
     const deleted = await JournalEntry.destroy({
-      where: { id: id },
+      where: { id, userId }, // ✅ only delete if owned by user
     });
 
     if (deleted === 0) {
-      return res.status(404).json({ message: "Entry not found" });
+      return res.status(404).json({ message: "Entry not found or unauthorized" });
     }
 
     res.json({ message: "Entry deleted successfully" });
@@ -34,6 +35,7 @@ export const addEntry = async (req, res) => {
       text,
       mood: aiData.mood,
       suggestion: aiData.suggestion,
+      userId: req.user.id, // ✅ link to logged-in user
     });
     return res.json(newEntry);
   } catch (err) {
@@ -46,7 +48,8 @@ export const addEntry = async (req, res) => {
 export const getAllEntries = async (req, res) => {
   try {
     const entries = await JournalEntry.findAll({
-      order: [["date", "DESC"]], // latest first
+      where: { userId: req.user.id },
+      order: [["date", "DESC"]],
     });
     return res.json(entries);
   } catch (err) {

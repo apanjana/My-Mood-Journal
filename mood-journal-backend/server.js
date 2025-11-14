@@ -1,24 +1,27 @@
 import express from "express";
-import cors from "cors";
 import dotenv from "dotenv";
-import { testDBConnection, sequelize } from "./db.js";
+import cors from "cors";
+
+import { testDBConnection } from "./db.js";
+import { sequelize } from "./models/index.js"; // ✅ only this one import
+import authRoutes from "./routes/authRoutes.js";
 import journalRoutes from "./routes/journalRoutes.js";
 
 dotenv.config();
-console.log("Loaded API Key:", process.env.GEMINI_API_KEY ? "✅ Found" : "❌ Missing");
-
 
 const app = express();
-app.use(cors({ origin: "http://localhost:4200" }));
+app.use(cors());
 app.use(express.json());
 
-// routes
+// Routes
+app.use("/api/auth", authRoutes);
 app.use("/api/journal", journalRoutes);
 
-const PORT = process.env.PORT || 8080;
+// Start server
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, async () => {
-    console.log(`✅ Server running on http://localhost:${PORT}`);
-    await testDBConnection();
-    await sequelize.sync({ alter: true }); // sync models to DB
-    console.log("✅ Models synced with MySQL");
-  });
+  await testDBConnection();
+  await sequelize.sync({ alter: true }); // ✅ sync after associations load
+  console.log(`🚀 Server running on port ${PORT}`);
+});

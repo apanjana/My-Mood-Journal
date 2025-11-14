@@ -1,0 +1,28 @@
+<div class="login-container">
+  <h2>LOGIN</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <input type="text" placeholder="Username" formControlName="username" />
+
+    <div class="password-container">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <span class="toggle-password" (click)="togglePasswordVisibility()">
+        {{ showPassword ? '🐵' : '🙈' }}
+      </span>
+    </div>
+
+    <button type="submit" [disabled]="isLoading">
+      {{ isLoading ? 'Logging in...' : 'Login' }}
+    </button>
+  </form>
+
+  <p class="register-link">Don't have an account? <a routerLink="/register">Register here</a></p>
+
+  <p *ngIf="message" [class]="messageType === 'error' ? 'message error' : 'message success'">
+    {{ message }}
+  </p>
+</div>

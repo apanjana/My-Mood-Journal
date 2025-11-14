@@ -1,0 +1,153 @@
+.login-container {
+  max-width: 420px;
+  margin: 80px auto;
+  background: #3d4a2c;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #d4d987;
+  border: 1px solid #4a5936;
+}
+
+.login-container h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #d4d987;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #5a6b42;
+  border-radius: 10px;
+  background: #2d3520;
+  color: #e8e5c8;
+  font-size: 15px;
+  font-family: 'Consolas', monospace;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.login-container input:focus {
+  outline: none;
+  font-family: 'Consolas', monospace;
+  border-color: #8b9a5f;
+  background: #323c22;
+  box-shadow: 0 0 0 3px rgba(139, 154, 95, 0.1);
+}
+
+.login-container input::placeholder {
+  font-family: 'Consolas', monospace;
+  color: #7d8c5e;
+  opacity: 0.8;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 14px;
+  background: #9fa864;
+  font-family: 'Consolas', monospace;
+  border: none;
+  border-radius: 10px;
+  color: #1f2414;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-container button:hover {
+  background: #b5c279;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.login-container button:active {
+  transform: translateY(0);
+}
+
+.register-link {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #9fa864;
+}
+
+.register-link a {
+  color: #d4d987;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.register-link a:hover {
+  color: #b5c279;
+  text-decoration: underline;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.message.error {
+  background: rgba(220, 38, 38, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.message.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Loading state for button */
+.login-container button:disabled {
+  background: #6b7550;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-container button:disabled:hover {
+  transform: none;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px; /* Space for the eye icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+  color: #000;
+}

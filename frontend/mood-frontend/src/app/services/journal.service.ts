@@ -1,23 +1,39 @@
 // src/app/services/journal.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root',
+})
 export class JournalService {
-  private baseUrl = 'http://localhost:5000/api/journal';
+  private apiUrl = 'http://localhost:5000/api/journal';
 
   constructor(private http: HttpClient) {}
 
-  addEntry(entry: { text: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/add`, entry);
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
   }
 
-  getAllEntries(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/all`);
+  addEntry(entryData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/add`, entryData, {
+      headers: this.getHeaders(),
+    });
   }
 
-  deleteEntry(id: number) {
-    return this.http.delete(`${this.baseUrl}/delete/${id}`);
+  getAllEntries(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/all`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  deleteEntry(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${id}`, {
+      headers: this.getHeaders(),
+    });
   }
 }

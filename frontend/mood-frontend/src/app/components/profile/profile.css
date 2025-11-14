@@ -1,0 +1,173 @@
+.profile-container {
+  max-width: 480px;
+  margin: 80px auto;
+  background: #3d4a2c;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  color: #d4d987;
+  border: 1px solid #4a5936;
+}
+
+.profile-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #d4d987;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.msg {
+  margin-top: 24px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+}
+
+.msg.success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.msg.error {
+  background: rgba(220, 38, 38, 0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #9fa864;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.profile-container label:first-of-type {
+  margin-top: 0;
+}
+
+.profile-container input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #5a6b42;
+  border-radius: 10px;
+  background: #2d3520;
+  color: #e8e5c8;
+  font-size: 15px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  margin-bottom: 4px;
+}
+
+.profile-container input:focus {
+  outline: none;
+  border-color: #8b9a5f;
+  background: #323c22;
+  box-shadow: 0 0 0 3px rgba(139, 154, 95, 0.1);
+}
+
+.profile-container input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #252e1a;
+}
+
+.profile-container input::placeholder {
+  color: #7d8c5e;
+  opacity: 0.8;
+}
+
+/* Date input styling */
+.profile-container input[type='date'] {
+  color: #7d8c5e;
+  cursor: not-allowed;
+}
+
+.profile-container input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Buttons container */
+.profile-container button {
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.update-btn {
+  width: 100%;
+  background: #9fa864;
+  border: none;
+  color: #1f2414;
+}
+
+.update-btn:hover {
+  background: #b5c279;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.update-btn:active {
+  transform: translateY(0);
+}
+
+.delete-btn {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  background: rgb(220 38 38 / 37%);
+  color: #fca5a5;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  /* margin-top: 12px; */
+}
+
+.delete-btn:hover {
+  background: rgba(220, 38, 38, 0.25);
+  border-color: rgba(220, 38, 38, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+/* Loading state for buttons */
+.profile-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .profile-container {
+    margin: 40px 20px;
+    padding: 30px 24px;
+  }
+}
