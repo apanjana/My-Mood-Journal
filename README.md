@@ -59,7 +59,7 @@ A full‑stack mood journaling application built using **Angular** (frontend) an
 ### **1. Clone the repository**
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/apanjana/My-Mood-Journal.git
 cd mood-journal
 ```
 
